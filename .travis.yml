@@ -17,9 +17,7 @@ after_success:
   - docker build -t mojoboss/multi-nginx ./nginx
   - docker build -t mojoboss/multi-server ./server
   - docker build -t mojoboss/multi-worker ./worker
-  # Log int to docker CLI
-  - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_ID" --password-stdin
-  # Push it to docker
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push mojoboss/multi-client
   - docker push mojoboss/multi-nginx
   - docker push mojoboss/multi-server
