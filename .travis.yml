@@ -6,8 +6,7 @@ services:
   - docker
 
 before_install:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t stephengrider/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t mojoboss/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   - docker run -e CI=true mojoboss/react-test npm test
